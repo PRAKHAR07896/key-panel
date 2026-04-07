@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Key Panel</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 100px;
+      background: #111;
+      color: white;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background: #00ffcc;
+      border: none;
+      cursor: pointer;
+    }
+    #key {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #00ffcc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔑 Key Generator Panel</h1>
+
+  <button onclick="getKey()">Get Key</button>
+
+  <div id="key"></div>
+
+  <script>
+    async function getKey() {
+      let res = await fetch("/get-key");
+      let data = await res.json();
+      document.getElementById("key").innerText = data.key;
+    }
+  </script>
+
+</body>
+</html>
