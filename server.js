@@ -4,16 +4,15 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 
-// 👇 frontend serve karega
-app.use(express.static("public"));
-
-function generateKey() {
-  return Math.random().toString(36).substring(2, 10).toUpperCase();
-}
+app.get("/", (req, res) => {
+  res.send("OK WORKING 🚀");
+});
 
 app.get("/get-key", (req, res) => {
-  const key = generateKey();
+  const key = Math.random().toString(36).substring(2, 10).toUpperCase();
   res.json({ key });
 });
 
-app.listen(process.env.PORT || 3000, () => console.log("Server running"));
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Server running");
+});
