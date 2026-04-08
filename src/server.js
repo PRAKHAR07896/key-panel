@@ -5,8 +5,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 // import models
-const User = require("./models/User");
-const Key = require("./models/Key");
+const User = require("../models/User");
+const Key = require("../models/Key");
 
 const app = express();
 
